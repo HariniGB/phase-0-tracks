@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DBC Student details</title>
+  </head>
+  <body bgcolor="#f0f8ff" style="text-align:center">
+  <h1 style="text-align: center; color: #38477b ">DBC Student details</h1>
+  <form action="success.html" method="post">
+  <fieldset>
+  <legend> <em><b>Personal details</b></em></legend>
+  <div>
+  <label> First Name: </label>
+  <input type="text" name="first-name" placeholder="Enter your first name">
+  </div><br>
+  <div>
+  <label> Last Name: </label>
+  <input type="text" name="last-name" placeholder="Enter your last name">
+  </div><br>
+  <div>
+  <label> Age: </label>
+  <input type="number" name="age" min="0" max="100" placeholder="0">
+  </div><br>
+  <div>
+  <label> Gender:</label>
+  <input type="radio" name="gender" value="male" checked> Male  
+  <input type="radio" name="gender" value="female"> Female  
+  <input type="radio" name="gender" value="other"> Other  
+  </div><br>
+  <div>
+  <label> Date of Birth </label>
+  <input type="date" name="Birth-date">
+  </div><br>
+  <div>
+  <label> Email Address: </label>
+  <input type="email" name="email" placeholder="Enter email id">
+  </div><br>
+  <div>
+  <label> Password: </label>
+  <input type="password" name="password" placeholder="Enter password">
+  </div><br>
+  <div>
+  <label> Location: </label>
+  <input list="Location" name="Location" placeholder="Select any one">
+  <datalist id="Location">
+    <option value="Austin">
+    <option value="Chicago">
+    <option value="New York">
+    <option value="San Diego">
+    <option value="SanFrancisco">
+    <option value="Seattle">
+  </datalist>
+  </div><br>
+  </fieldset>
+  <fieldset>
+  <legend> <em><b>Cohort details</b></em></legend>
+  <div>
+  <label>Cohort name</label>
+   <select>
+        <option value="BUMBLEBEES ">BUMBLEBEES</option>
+        <option value="CHORUS FROGS ">CHORUS FROGS </option>
+        <option value="FIDDLER CRABS">FIDDLER CRABS</option>
+         <option value="SEA LIONS">SEA LIONS</option>
+   </select>
+  </div><br>
+<div>
+  <label>Current phase (0/1/2/3): </label>
+  <select>
+  <optgroup label="Phase 0">
+    <option value="week1">week1</option>
+    <option value="week2">week2</option>
+    <option value="week3">week3</option>
+    <option value="week4">week4</option>
+    <option value="week5">week5</option>
+    <option value="week6">week6</option>
+    <option value="week7">week7</option>
+    <option value="week8">week8</option>
+  </optgroup>
+  <optgroup label="Phase 1">
+    <option value="week1">week1</option>
+    <option value="week2">week2</option>
+    <option value="week3">week3</option>
+  </optgroup>
+  <optgroup label="Phase 2">
+    <option value="week4">week1</option>
+    <option value="week5">week2</option>
+    <option value="week6">week3</option>
+  </optgroup>
+  <optgroup label="Phase 3">
+    <option value="week7">week1</option>
+    <option value="week8">week2</option>
+    <option value="week9">week3</option>
+  </optgroup>
+  </select>
+ </div><br>
+  <div>
+  <label>Specialized in :</label> <br>
+  <input type="checkbox" name="html" value="HTML" checked> HTML<br>
+  <input type="checkbox" name="css" value="CSS" checked> CSS<br>
+  <input type="checkbox" name="html" value="Javascript"> Javascript<br>
+  <input type="checkbox" name="git" value="Git">  Git and GitHub<br>
+  <input type="checkbox" name="rails">Ruby on Rails<br>
+  <input type="checkbox" name="sql">MySql<br>
+  <input type="checkbox" name="other" value="other">other<br>
+  </div>
+  </fieldset>
+  <fieldset>
+  	<legend> <em><b>Feedback/Comments</b></em></legend>
+  	<textarea rows="6" cols="50">
+  	</textarea>
+  </fieldset>
+  <input type="submit">
+  <input type="reset">
+  </form>
+  </body>
+  </html>
