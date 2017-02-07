@@ -1,7 +1,7 @@
 section#contact-info {
   position: fixed;
   top: 0px;
-  right: 0px;
+  right: 0px; /*margin of the page*/
   text-align: center;
   width: 100%;
   background-color: white;
