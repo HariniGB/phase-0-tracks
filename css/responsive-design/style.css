@@ -59,14 +59,8 @@ img {
 }
 
 @media screen and (max-width: 832px) {
-ol {
-text-align:left;
-border-width:3px; 
-border-style: inset;
-margin-right: 10px;
-}
 
-main,#external-links {
+#external-links {
 width:100%;
 height:auto;
 text-align:center;
