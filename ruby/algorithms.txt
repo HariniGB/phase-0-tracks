@@ -1,0 +1,44 @@
+Release 0- Equip your new robot:
+
+-Get/Decide the floor_number.
+-If the current_floor_number is greater than 1,then
+    -Check whether the floor_number is greater or lesser than the current_floor_number:
+      -If the floor_number is greater than current_floor_number, then press the up arrow 
+      -else if the floor_number is less than current_floor_number,then press the down arrow.
+-If the current_floor_number is equal to 1, then
+    -Press the up arrow.
+-Check whether the elevator door is open(1):
+       -If the door is open(1), then
+       -Enter the elevator.
+       -else if the door is closed(0), then
+       -Wait for 3 minutes.
+       -Repeat this step until the door is open(1).
+-Check the floor_button option in the menu bar:
+    -If the floor_button_label is equal to the floor_number value, then
+       -Press the button.
+    -Else, iterate to the next floor_button in the menu bar and continue the check until the floor_button_label is equal to floor_number value.
+-For each floor:
+    -Increment the current_floor_number if the floor_number is greater than current_floor_number.
+    -Else decrement the current_floor_number if the floor_number is less than the current_floor_number.
+-If current_floor_number is equal to the floor_number, then
+    -Check whether the elevator door is open(1):
+       -If the door is open, then
+       -Enter the lift.
+       -else if the door is closed(0), then
+       -Wait for 2 minutes.
+       -Repeat this step until the door is open(1).
+   -Exit out of the elevator.
+-If the elevator stops in the middle:
+   -Check whether the elevator door is opened(1):
+       -If the door is open(1), then continue.
+       -Else press the red_button:
+          -Iterate through all the buttons and check button_label equal to “ EMERGENCY” or “HELP” or “ALARM”.
+          -If the button_label equal to “EMERGENCY” or “HELP” or “ALARM”, press that button. 
+-
+   
+       
+   
+
+     
+   
+      
