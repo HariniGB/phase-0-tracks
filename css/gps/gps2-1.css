@@ -1,7 +1,12 @@
 
 header {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,.5);
   padding: 0px 10px;
+  background-image: url(http://blog.davidecoppola.com/wp-content/uploads/2016/10/GitHub-Octocat_logo-featured.png);
+  background-position: top right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-blend-mode: color-dodge;
 }
 .column-1 {
   display: table-cell;
@@ -25,9 +30,13 @@ p{
 }
 footer{
   clear: both;
-  padding-top: 20px;
-  text-align: center;
   background-color: #ffffff;
+  background-image: url(http://blog.davidecoppola.com/wp-content/uploads/2016/10/GitHub-Octocat_logo-featured.png);
+  background-position: bottom right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  right: 0;
+  padding: 20px;
 }
 body{
   font-size: 1.15em;
