@@ -1,6 +1,41 @@
-body {
-	background-color: #FFE4C4;
+
+header {
+  background-color: rgba(255,255,255,0.5);
+  padding: 0px 10px;
 }
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica", sans-serif;
+.column-1 {
+  display: table-cell;
+  border-style: inset;
+  width: 50%;
+  padding: 10px;
+}
+.column-2 {
+  border-style: inset;
+  display: table-cell;
+  width: 50%;
+  padding: 10px;
+}
+h1, h2{
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 5px;
+}
+p{
+  padding: 0px 10px;
+}
+footer{
+  clear: both;
+  padding-top: 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+body{
+  font-size: 1.15em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: #E396EB  ; 
+  background: -webkit-linear-gradient( #E396EB  , #6319FA ); 
+  background: -o-linear-gradient( #E396EB  , #6319FA); 
+  background: -moz-linear-gradient( #E396EB  , #6319FA ); 
+  background: linear-gradient( #E396EB , #6319FA ); 
 }
