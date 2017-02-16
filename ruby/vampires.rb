@@ -5,8 +5,14 @@ for count in 1..total_count
 puts "Welcome to the interview\nplease be seated!"
 puts "What is your name?"
 person_name = gets.chomp
-puts "How old are you?"
+age = 0 
+until (age > 15 && age <= 80)
+puts "How old are you? (between 15 to 80)"
 age = gets.chomp.to_i
+if age < 15 || age > 80
+  puts "Invalid age number."
+end
+end
 puts "What year were you born?"
 year = gets.chomp.to_i
 current_year = Time.new.year
