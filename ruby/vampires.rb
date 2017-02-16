@@ -6,7 +6,7 @@ puts "Welcome to the interview\nplease be seated!"
 puts "What is your name?"
 person_name = gets.chomp
 age = 0 
-until (age > 15 && age <= 80)
+until (age >= 15 && age <= 80)
 puts "How old are you? (between 15 to 80)"
 age = gets.chomp.to_i
 if age < 15 || age > 80
