@@ -6,11 +6,16 @@ html {
 
 body {
   font-family: "Georgia", serif;
+  /*It takes Georgia as a first priority and if the browser doesn't support it takes serif */
   padding: 20px 30px;
+  /*box-model*/
   border-radius: 5px;
+  /* New: The border-radius CSS property allows Web authors to define how rounded border corners are.*/
   background-color: white;
   margin: 30px auto;
+  /*box model*/
   max-width: 960px;
+  /*New: */
   font-size: 1.2em;
 }
 
@@ -21,7 +26,8 @@ ul {
 /* You can select multiple tags at once! */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica", sans-serif;
+  font-family: "Helvetica", sans-serif; 
+/*It takes Helvetica as a first priority and if the browser doesn't support it takes sans-serif */
 }
 
 /* 
