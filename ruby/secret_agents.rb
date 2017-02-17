@@ -30,3 +30,7 @@ puts "The word is : bcd"
 decrypt("bcd")
 puts "The word is : afe"
 decrypt("afe")
+puts "Decrypt and Encrypt:  Nested Method Call"
+puts "The word is : swordfish"
+puts decrypt(encrypt("swordfish"))
+
