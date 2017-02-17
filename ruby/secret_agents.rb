@@ -15,3 +15,18 @@ puts "The word is : abc"
 encrypt("abc")
 puts "The word is : zed "
 encrypt("zed")
+
+def decrypt(word) 
+	i = 0
+	alphabets = "abcdefghijklmnopqrstuvwxyz"
+	while i < word.length   
+		word[i] = alphabets[alphabets.index(word[i]) - 1]  
+		i += 1
+	end
+	puts word.
+end
+puts "Decrypt:"
+puts "The word is : bcd"
+decrypt("bcd")
+puts "The word is : afe"
+decrypt("afe")
