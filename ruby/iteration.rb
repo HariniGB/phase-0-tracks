@@ -25,10 +25,13 @@ fruits = { "Apricots" => "Vitamin A",
 #puts fruits 
 
 colors = ["red","blue","green","yellow","white","black"]
-new_colors =[]
-colors.each do |color| 
-	new_colors << color.upcase 
-end 
+#new_colors =[]
+#colors.each do |color| 
+#	new_colors << color.upcase 
+#end 
 
-p colors
-p new_colors
+#p colors
+#p new_colors
+puts "The original colors array is #{colors}" 
+colors.map! {|color| color.upcase}
+puts  "The modifies colors array is #{colors}"
