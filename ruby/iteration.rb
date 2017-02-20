@@ -14,9 +14,21 @@ fruits = { "Apricots" => "Vitamin A",
 "Kiwi" => "Vitamin B6"
 }
 
-fruits.each {|fruit, vitamin| puts "In this #{fruit} we have #{vitamin}"}
+#fruits.each {|fruit, vitamin| puts "In this #{fruit} we have #{vitamin}"}
 
-fruits.each do|fruit, vitamin|
-	puts "This is using do and end"
-	puts "In this #{fruit} we have #{vitamin}"
-end
+#new_variable = fruits.map do|fruit, vitamin|
+#	puts "This is using .map"
+#	puts "In this #{fruit} we have #{vitamin}"
+#end
+
+#puts new_variable
+#puts fruits 
+
+colors = ["red","blue","green","yellow","white","black"]
+new_colors =[]
+colors.each do |color| 
+	new_colors << color.upcase 
+end 
+
+p colors
+p new_colors
