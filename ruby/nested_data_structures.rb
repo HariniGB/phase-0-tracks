@@ -6,7 +6,7 @@
 #Add the new customers to the data strucutre.
 #Update the food items (as the menu changes frequently).
 #Delete a branch (as there might be some issues in that branch).
-#Display the branch which has maximum  no of customers and which has the special food items.
+#Display the list of items from a array inside hash. 
 #Display specific details from the nested data structure. 
 
 dezi_indiawala = { branches: {
@@ -51,10 +51,58 @@ dezi_indiawala = { branches: {
     	        "others" => "varies"},
     	festiv_food: { diwali:["Namak paree","Shakka pare","Chivda","Shammi Kabab","Dhokla","Vada pav"],
     		dashara: ["Payasam","Pongal","Kesari","Pulihora","Paniyaram","Sundal","Poha"],
-    		new_year: ["Cakes","Puddings","Puffs","Chocolate Fudge","Muffins","Cup cakes"]
+    		new_year: [{"cakes" => "all sizes"},"Puddings","Puffs","Chocolate Fudge","Muffins","Cup cakes"]
 	}
 },
     employees: { part_time: ["Ezra","Asher","Oliver","Olivia","Mia","Penelope","Cora","Leo","Jack","Wyatt","Henry","Rose"],
-    	full_time:["Luna","Nora","Liam","Benjamin","Ethan","Scarlett","Axel","John","Lucy","Maya","Lila","James","Daniel","Soren"]
+    	full_time:["Luna","Nora","Liam","Benjamin","Ethan","Scarlett","Axel","John","Lucy","Maya","Lila","James","Daniel","Soren","Lily","Lucky"]
 }
 }
+## --------------------->Add the customers list in the two cities (SF and NY)<-----------------------------------------------------------
+puts "Add in the end of the array:"
+puts dezi_indiawala[:branches][:san_francisco][:customers_list].push("Leah","Sarah","Elizabeth","Kaylee","Victoria","Eli","Nicholas")
+puts "Add in the beginning of the array:"
+puts dezi_indiawala[:branches][:new_york][:customers_list].unshift("Willa","Landon")
+## --------------------->Remove a customer from the customers list in in the two cities (chicago and texas_austin) <---------------------
+puts "Remove from the end of the array:"
+puts dezi_indiawala[:branches][:chicago][:customers_list].pop(2)
+puts "Remove from the beginning of the array:"
+puts dezi_indiawala[:branches][:texas_austin][:customers_list].shift(3)
+## --------------------->Update the special_food in SF branch<----------------------------------------------------------------------------
+puts "change Baati to Bakarwadi:"
+puts dezi_indiawala[:branches][:san_francisco][:special_food][2] = "Bakarwadi" 
+## --------------------->Update the food_cost of the "Egg burger"<------------------------------------------------------------------------
+puts "change the cost of Egg burger from 5 to 7:"
+puts dezi_indiawala[:cost_details][:food_cost]["Egg burger"] = 7
+##---------------------->Delete a branch (as there might be some issues in that branch).<-------------------------------------------------
+puts "Delete the branch if they have less than 6 customers:"
+if dezi_indiawala[:branches][:san_francisco][:customers_list].length < 6
+	dezi_indiawala[:branches].delete(:san_francisco)
+elsif dezi_indiawala[:branches][:new_york][:customers_list].length < 6
+	dezi_indiawala[:branches].delete(:new_york)
+elsif dezi_indiawala[:branches][:texas_austin][:customers_list].length < 6
+	dezi_indiawala[:branches].delete(:texas_austin)
+else dezi_indiawala[:branches][:chicago][:customers_list].length < 6
+	dezi_indiawala[:branches].delete(:chicago)
+end 
+puts dezi_indiawala[:branches]
+puts "The texas_austin branch got deleted."
+##---------------------->Display the list of items in nested data strucutre.<-------------------------------------------------------------
+puts "Dispaly the array inside a hash"
+puts dezi_indiawala[:cost_details][:festiv_food][:diwali]
+puts "Display the hash inside an array"
+puts dezi_indiawala[:cost_details][:festiv_food][:new_year][0]
+##---------------------->Display specific details from the nested data structure.<---------------------------------------------------------
+puts "Display the food items which has the cost value 5:"
+ dezi_indiawala[:cost_details][:food_cost].each do |key,value| 
+ 	puts key  if value >= 5
+ end
+puts "Diplay the list of full time employees name starting with 'L' :"
+dezi_indiawala[:employees][:full_time].each do |name| 
+	puts name if name[0] == "L"
+end
+
+
+
+
+
