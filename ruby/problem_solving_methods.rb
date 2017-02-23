@@ -16,17 +16,9 @@ def search_array(arr, int)
 	i += 1
 	end
 end
-def search_array_each(arr, int)
-	arr.each_index do |i| 
-		if arr[i] == int 
-			return i
-		end
-	end
-	return nil
-end
-#array = [5, 3, 8, 10, 7]
-#p search_array_each(array, 7)
-#p search_array_each(array, 23)
+array = [5, 3, 8, 10, 7]
+#p search_array(array, 7)
+#p search_array(array, 23)
 
 #Calculate Fibonacci Numbers 
 
@@ -63,11 +55,33 @@ def fib(n)
 	end 
 	return fib_array  
 end
-#p fib(2)
 #p fib(100)
 #p fib(6)
 #p fib(0)
 
+#Sort an Array
+
+#Pseudocode 
+#Create a method (bubble_sort) with an argument as an array and returns the sorted array
+#swap if the current element is less than the previous element else continue to the next.
+#until there is no swap which means all elements are in increasing order, exit.
+
+def bubble_sort(array)
+	n = array.length + 1
+	loop do 
+		swapping = false 
+		(n-1).times do |i|
+			if i > 0 && array[i] < array[i - 1]
+				array[i - 1], array[i] = array[i], array[i - 1]
+				swapping = true
+			end
+		end 
+		break if not swapping
+	end
+	array 
+end 
+arr = [7,6,2,3,5,4,1]
+#p bubble_sort(arr)
 
 
 
