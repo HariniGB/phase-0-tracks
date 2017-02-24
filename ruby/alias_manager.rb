@@ -16,23 +16,23 @@ def alias_name()
 	puts "----------------------"
 	name = ""
 	name_list = []
-  until name == "quit" do
-    puts "Enter the spy's real name: (enter 'quit' to end)"
-    name = gets.chomp
-    if name == "quit"
-    	puts "You have quit successfully!"
-		  puts name_list
-		  exit
-	  else
-	    fake_name = []
-		  swap_names(name).each_char do |letter|
-		   	fake_name << next_vowel(letter)
-	    end
-	    fake = capital_name(fake_name.join(''))
-	    puts "The fake name is: "
-	    puts fake
-	    name_history = fake + " is actually "+ name
-	    name_list << name_history
+        until name == "quit" do
+		puts "Enter the spy's real name: (enter 'quit' to end)"
+                name = gets.chomp
+                if name == "quit"
+			puts "You have quit successfully!"
+			puts name_list
+			exit
+		else
+			fake_name = []
+			swap_names(name).each_char do |letter|
+				fake_name << next_vowel(letter)
+			end
+			fake = capital_name(fake_name.join(''))
+			puts "The fake name is: "
+			puts fake
+			name_history = fake + " is actually "+ name
+			name_list << name_history
 		end
 	end 
 end
@@ -53,7 +53,7 @@ def next_vowel(char)
 	elsif letter == " "
 		letter = " "
 	elsif consonant.index(letter) != nil && letter == consonant[-1]
-	  letter = consonant[0]
+	        letter = consonant[0]
 	elsif consonant.index(letter) != nil
 		letter = consonant[consonant.index(letter)+1]
 	end   
