@@ -2,13 +2,13 @@
 
 #Pseudocode 
 #Create a method that take the spy's real name (string) and returns the fake name.
-#Swapping the first and last name
+#Swapping the first and last name.
 #Iterate through the name and find whether each letter is a vowel or a consonant.
 #Change all the vowels to the next vowel letter and all consonants to their next consonant letter.
 #Use methods to find a letter is vowel or not, to capitalize the first letter and to convert the letter to its next letter. 
 #Create user interface and get the name else type quit.
 #Store the names in a data structure (like array) and display when the user quits.
-#Display the names list in a sentence "Vussit Gimodoe is actually Felicia Torres
+#Display the names list as a hash abd print the keys and it's values in a sentence "Vussit Gimodoe is actually Felicia Torres".
 
 #release 2
 #Convert the real name to a fake name.
