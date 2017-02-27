@@ -67,17 +67,17 @@ until real_name == "quit" do
 	puts "Enter the spy's real name: (enter 'quit' to end)"
     real_name = gets.chomp
     if real_name == "quit"
-    	puts "You have quit successfully!"
-		names_list.each do |key, value|
-	    	puts value + " is actually " + key
+	    puts "You have quit successfully!"
+	    names_list.each do |key, value|
+		    puts value + " is actually " + key
 	    end
 	    #Display each key and its value from the hash as a sentence.
-		exit
-	else
+	    exit
+    else
 	    fake_name = realname_to_fakename(real_name)
 	    #Calls the method realname_to_fakename(name)
 	    puts "The fake name is: #{fake_name}"
 	    names_list[real_name] = fake_name
 	    #Push the real_name as the key and it's value as the fake name.
-	end 
+    end 
 end
