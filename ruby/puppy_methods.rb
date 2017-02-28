@@ -15,6 +15,13 @@
 
 class Puppy
 
+  #Add a method to your Puppy class named initialize. It should print "Initializing new puppy instance ..."
+  #What happens if you deliberately misspell the name of the initialize method in its definition? Do you get an error? Take note of how Ruby behaves in this circumstance:  
+  # There was no error and the method doesn't execute as it has no instance methodin the driver ccode.
+  def initialize
+  	puts "Initializing new puppy instance ..."
+  end
+
   def fetch(toy)
     puts "I brought back the #{toy}!"
     toy
@@ -54,7 +61,7 @@ class Puppy
   end
 
 end
-# Release 0
+# Release 1
 
 # Add driver code at the bottom that initializes an instance of Puppy, and verify that your instance can now fetch a ball. Run the file from the command line to check your work.
 dog = Puppy.new
