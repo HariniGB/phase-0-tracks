@@ -59,10 +59,9 @@ class Puppy
   		puts "My puppy likes #{item}"
   	end
   end
-
 end
 # Release 1
-
+=begin
 # Add driver code at the bottom that initializes an instance of Puppy, and verify that your instance can now fetch a ball. Run the file from the command line to check your work.
 dog = Puppy.new
 dog.fetch("ball")
@@ -81,5 +80,42 @@ dog.dog_years(1)
 
 # method instance for dog_eat() method
 dog.dog_eat(["Milk","Biscuits","Egg","Bones"])
+=end
 
+#Release 2
+# Design and implement your own class with initialize method and at least two other instance methods.
+class Cat
+  def initialize
+    puts "Initializing new cat instance ..."
+  end
 
+  def details(name, color, age)
+    return "Cat's name: #{name}. Cat's color: #{color}. Cat's age: #{age} months."
+  end
+
+  def activities(activity)
+    if activity == "eat"
+      return "My Cat eats milk."
+    elsif activity == "noise"
+      return "Meow, Meow, Meow"
+    else
+      return "My Cat does nothing normal."
+    end
+  end
+end
+
+#Driver code
+n = 0
+cats_array = []
+# Use a loop to make 50 instances of your class.
+while n < 50
+  pussy = Cat.new
+  # Modify your loop so that it stores all of the instances in a data structure.
+  cats_array << pussy
+  n += 1
+end
+# Iterate over that data structure using .each and call the instance methods
+cats_array.each do |obj|
+	puts obj.details("Fluffy","Brown", 5)
+	puts obj.activities("noise")
+end
