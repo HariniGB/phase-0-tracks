@@ -5,6 +5,13 @@
 class Santa 
 	# Your class should have three instance methods:
 	# An initialize method that prints "Initializing Santa instance ..."
+	# Release 3
+	# Refactor your code with attr_reader and attr_accessor. Verify that your driver code still works.
+	# There are 3 different getter and setter methods for instance variables.
+	# 
+	attr_reader :age, :ethinicity 
+	attr_accessor :name
+	attr_writer :gender
 
 	# Release 1:
 	# Update your Santa class with the following attributes:
@@ -73,25 +80,6 @@ class Santa
 			@reindeer_ranking[-1] = reindeer_name
 		end
 		puts "#{@name}'s reindeer list: #{@reindeer_ranking}"
-	end
-	# Add "setter" methods
-	# The @gender attribute should have a setter method that allows @gender to be reassigned from outside the class definition.
-	def gender= (new_gender)
-		@gender = new_gender
-	end
-
-	# Add two "getter" methods 
-	# The method age should simply return @age.
-	def age
-		@age
-	end
-	# The method ethnicity should return @ethnicity.
-	def ethinicity
-		@ethinicity
-	end
-	# The method name should return @name
-	def name
-		@name
 	end
 end
 
