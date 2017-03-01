@@ -21,9 +21,11 @@ class Santa
 	#A santa_details method to dipaly the details of the santa
 	def santa_details
 		puts "-" * 70
-		puts "Here is our #{@name}, who is #{@age} years old and whose ethinicity is #{@ethinicity}"
+		puts "Here is our #{@name}!"
 		#Print the number of gifts the santa has if the @gifts is greater than 0.
 		puts "The #{@name} has #{@gifts} gifts." if @gifts > 0
+		# Display the list of reindeer he has.
+		puts "#{@name}'s reindeer list: #{@reindeer_ranking}"
 	end
 
 	# A speak method that will print "Ho, ho, ho! Haaaappy holidays!"
@@ -57,6 +59,40 @@ class Santa
 			puts "Wish you a very Happy Christmas!"
 		end
 	end
+	# Add three attribute-changing methods 
+	# A celebrate_birthday method should increase the age of Santa by one year.
+	def celebrate_birthday
+		@age = @age + 1
+	end
+	# A get_mad_at method can take a reindeer's name as an argument, and move that reindeer in last place in the reindeer rankings.
+	def get_mad_at(reindeer_name)
+		if @reindeer_ranking.index(reindeer_name) == nil 
+			puts "There is no such reindeer in the list"
+		else
+			@reindeer_ranking.delete(reindeer_name)
+			@reindeer_ranking[-1] = reindeer_name
+		end
+		puts "#{@name}'s reindeer list: #{@reindeer_ranking}"
+	end
+	# Add "setter" methods
+	# The @gender attribute should have a setter method that allows @gender to be reassigned from outside the class definition.
+	def gender= (new_gender)
+		@gender = new_gender
+	end
+
+	# Add two "getter" methods 
+	# The method age should simply return @age.
+	def age
+		@age
+	end
+	# The method ethnicity should return @ethnicity.
+	def ethinicity
+		@ethinicity
+	end
+	# The method name should return @name
+	def name
+		@name
+	end
 end
 
 #Driver code
@@ -73,7 +109,14 @@ santas << Santa.new("N/A", "N/A", "N/A", 0)
 
 santas.each do |santa|
 	santa.santa_details
+	puts "#{santa.name} is #{santa.age} years old and whose ethinicity is #{santa.ethinicity}"
+	# Reassign the value using setter method gender.
+	santa.gender = "Male" 
+	santa.celebrate_birthday
+	puts "The updated age is #{santa.age} year"
 	santa.eat_cookies("snickerdoodle")
-	santa.santa_singings
+	santa.santa_singing
+	puts "Santa moved the Dasher reindeer to the last in the list"
+	santa.get_mad_at("Dasher")
 	santa.give_gifts
 end
