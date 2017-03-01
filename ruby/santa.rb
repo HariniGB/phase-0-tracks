@@ -63,7 +63,8 @@ class Santa
 			puts "Wish you a very Happy Christmas!"
 		end
 	end
-	# Add three attribute-changing methods 
+
+	# Add two attribute-changing methods 
 	# A celebrate_birthday method should increase the age of Santa by one year.
 	def celebrate_birthday
 		@age = @age + 1
@@ -83,8 +84,9 @@ end
 #Driver code
 
 # Add a bit of code below your class declaration to check that you're able to initialize a Santa instance and call its methods.
-# santas = [] - No need to store your Santas in a data structure.
+# santas = [] - No need to store your Santas in a data structure. Release 4
 
+# Release 4
 # Use the array of example genders, songs_list and an array of example ethnicities
 gender = ["agender","female","bigender","male","female","gender fluid","N/A"]
 ethinicity = ["black","Latino","white","Japanese","prefer not to say","Mystical Creature (unicorn)","N/A"]
@@ -99,8 +101,6 @@ santa.celebrate_birthday
 puts "The updated age is #{santa.age} years"
 santa.eat_cookies("snickerdoodle")
 santa.santa_reindeer
-# Reassign the value using setter method gender.
-# santa.gender = "Male" 
 puts "Santa moved the Dasher reindeer to the last in the list"
 santa.get_mad_at("Dasher")
 santa.santa_singing
