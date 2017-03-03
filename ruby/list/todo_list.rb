@@ -23,7 +23,7 @@ class TodoList
 	end
 
 	# NoMethodError: undefined method `get_item' for #<TodoList:0x007fa39a07d240>
-    def  get_item(index)
-    	@items[index]
-    end
+        def  get_item(index)
+    	       @items[index]
+        end
 end
