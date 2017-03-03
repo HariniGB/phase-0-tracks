@@ -57,43 +57,11 @@
 
 # Create a WordGuess class with the behavior methods using instance variables.
 class WordGuess 
-	def initialize(word)
-		@word = word
-		@guess_limit = @word.length
-		@guessed_letters = []
-		@game_end = false
-	end
-
-	# Behavior methods:  input_word, guessing_letter, correct_guess(), guess_limit() and  remaining_guesses()
-    def input_word
-    	@word
-    end
-
-    def guessing_letter(letter)
-    	if @guessed_letters.index(letter) != nil
-    		puts "Don't repeat the same guess. You have #{@guess_limit} guesses. Try different guess."
-    	else
-    		@guessed_letters << letter
-    	end   	
-    	@guessed_letters
-    end
-
-    def correct_guess(letter)
-    	if @word.index(letter)
-    		@guess_limit -= 1
-    		puts "Congrats!!! Your guess is correct. You have #{@guess_limit} guesses. Try to find the word."
-    	end
-    	guessing_letter(letter)
+end
 
 
 
 
-
-
-
-
-
-@guess_limit -= 1 if letter == correct_guess(letter)
 
 
 
