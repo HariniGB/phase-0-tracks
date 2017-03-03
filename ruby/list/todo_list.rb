@@ -8,7 +8,7 @@ class TodoList
 	end
 
 	# NoMethodError: undefined method `get_items' for #<TodoList:0x007f9dcd079230>
-	def get_items()
+	def get_items
 		@items 
 	end
 
@@ -21,4 +21,9 @@ class TodoList
 	def delete_item(item)
 		@items.delete(item)
 	end
+
+	# NoMethodError: undefined method `get_item' for #<TodoList:0x007fa39a07d240>
+    def  get_item(index)
+    	@items[index]
+    end
 end
