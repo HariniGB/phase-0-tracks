@@ -9,6 +9,12 @@
 # The guessing player receives continual feedback on the current state of the word. So if the secret word is "unicorn", the user will start out seeing something like "_ _ _ _ _ _ _", which would become "_ _ _ c _ _ _" after the user enters a guess of "c".
 # The user should get a congratulatory message if they win, and a taunting message if they lose. And a repeated guess message if they guess same option again and again.
 
+# Behavior: 
+# A method to get the word and calculate its length, the no of guesses etc.
+# A method to get the guess("letter",index) and check for repeat method and check correct_guess method
+# Create repeat_guess(), correct_guess(), guess_limit() and  remaining_guesses()
+# Display the word with correct guess and other indeces as "_".
+
 
 # SAMPLE:
 
@@ -43,3 +49,69 @@
 # e
 # Congrats!!! Your guess is correct. Try to find the word.
 # The word status is: _ e _ _ _ _ _ _ _ _ _ 
+
+
+# Release 2: Test and Build Your Game
+# Program file : word_game.rb
+# Test file : word_game_spec.rb
+
+# Create a WordGuess class with the behavior methods using instance variables.
+class WordGuess 
+	def initialize(word)
+		@word = word
+		@guess_limit = @word.length
+		@guessed_letters = []
+		@game_end = false
+	end
+
+	# Behavior methods:  input_word, guessing_letter, correct_guess(), guess_limit() and  remaining_guesses()
+    def input_word
+    	@word
+    end
+
+    def guessing_letter(letter)
+    	if @guessed_letters.index(letter) != nil
+    		puts "Don't repeat the same guess. You have #{@guess_limit} guesses. Try different guess."
+    	else
+    		@guessed_letters << letter
+    	end   	
+    	@guessed_letters
+    end
+
+    def correct_guess(letter)
+    	if @word.index(letter)
+    		@guess_limit -= 1
+    		puts "Congrats!!! Your guess is correct. You have #{@guess_limit} guesses. Try to find the word."
+    	end
+    	guessing_letter(letter)
+
+
+
+
+
+
+
+
+
+@guess_limit -= 1 if letter == correct_guess(letter)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
