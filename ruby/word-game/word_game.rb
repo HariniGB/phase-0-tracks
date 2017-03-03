@@ -47,7 +47,7 @@
 # 2
 # Guess the aplhabet:
 # e
-# Congrats!!! Your guess is correct. Try to find the word.
+# Congrats!!! Your guess is correct. You have 10 guesses. Try to find the word.
 # The word status is: _ e _ _ _ _ _ _ _ _ _ 
 
 
@@ -57,6 +57,30 @@
 
 # Create a WordGuess class with the behavior methods using instance variables.
 class WordGuess 
+
+    # Initialize method with word parameter converted into instance variable.
+	def initialize(word)
+		@word = word
+		@guess_limit = word.length
+
+	end
+
+    # This method should return the word if called.
+	def target_word
+		@word
+	end
+
+	# guess_limit should return the guesses available based on the word length
+	def guess_limit
+		@word.length
+	end
+
+	# Method to print the word as dash to guess the letters.
+	def dash_word
+		@hidden_word = @word.tr(@word,"-")
+		@hidden_word
+	end
+
 end
 
 
