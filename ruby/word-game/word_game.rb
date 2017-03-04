@@ -57,34 +57,80 @@
 
 # Create a WordGuess class with the behavior methods using instance variables.
 class WordGuess 
+     
+    attr_reader :hidden_word, :word, :guessed_words, :game_end, :index, :guesses
+	attr_writer :guesses, :hidden_word, :guessed_words, :index
+
 
     # Initialize method with word parameter converted into instance variable.
 	def initialize(word)
 		@word = word
-		@guess_limit = word.length
-
+		@guesses = word.length
+		# Initialize a instance variable with empty hash.
+		@guessed_words = {}
+		@game_end = false
+		@index = 0
 	end
 
-    # This method should return the word if called.
-	def target_word
-		@word
+	def original_word
+		word
 	end
 
-	# guess_limit should return the guesses available based on the word length
 	def guess_limit
-		@word.length
+		guesses 
 	end
 
 	# Method to print the word as dash to guess the letters.
 	def dash_word
-		@hidden_word = @word.tr(@word,"-")
-		@hidden_word
+		@hidden_word = original_word.tr(original_word,"-")
+		hidden_word
 	end
 
+	# A method to push each guesses inside the hash.
+	def guesses_history(alphabet,position)
+		guessed_words[position] = alphabet
+		guessed_words
+	end
+
+    # A method to decrement the guess count for every correct guess.
+	def guesses_left
+		@guesses -= 1
+		guesses 
+	end
+
+	# Method to get the guessed word from the user. 
+	def guessed_word(alphabet,position)
+		index = position-1
+		if original_word[index] == alphabet.upcase
+			dash_word[index] = alphabet.upcase
+			guesses_history(alphabet,position)
+			guesses_left
+			hidden_word
+		elsif original_word[index] == alphabet.downcase
+			dash_word[index] = alphabet.downcase
+			guesses_history(alphabet,position)
+			guesses_left
+			hidden_word
+		elsif guessed_words.keys.index(position) != nil && guessed_words[position] == alphabet
+			puts "Repeated guess"
+		else
+			guesses_history(alphabet,position)
+			hidden_word
+		end
+		hidden_word
+	end
+
+	# A method to end the game if the user has guessed all the letters.
+	def game_end?
+		if guess_limit == 0 
+			@game_end  = true 	
+		elsif hidden_word == word
+			@game_end  = true	
+		else
+			game_end 
+		end		
+	end
 end
-
-
-
 
 
 
