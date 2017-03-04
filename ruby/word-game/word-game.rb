@@ -177,7 +177,7 @@ puts "The word is: #{wordgame.hidden_word}"
 until wordgame.guesses <= 0
 	#Initialize the local variables inside the loop to valid the until condition.
 	position = 0
-    alphabet = ""
+	alphabet = ""
 	# Allow only valid valid position number. 
 	until position >= 1 && position <=  word.length
 		puts "Enter the letter's position (1 to #{word.length}):"
