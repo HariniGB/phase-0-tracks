@@ -10,10 +10,12 @@
 # The user should get a congratulatory message if they win, and a taunting message if they lose. And a repeated guess message if they guess same option again and again.
 
 # Behavior: 
-# A method to get the word and calculate its length, the no of guesses etc.
-# A method to get the guess("letter",index) and check for repeat method and check correct_guess method
-# Create repeat_guess(), correct_guess(), guess_limit() and  remaining_guesses()
-# Display the word with correct guess and other indeces as "_".
+# A method to get the word and calculate its length, 
+# A method to get no of guesses etc. Decrement the guesses limit for each guess. 
+# A method to get the guess("letter",index) and check for repeated guess and check for correct guess using conditions.
+# Create a hash and store the guesses. Compare the current guess and the hash for already existing repeate guess.
+# Display the word status with correct guesses and other indeces as "_". 
+# Diplay a congrats message or a taunting message base on the guess. 
 
 
 # SAMPLE:
@@ -58,9 +60,9 @@
 # Create a WordGuess class with the behavior methods using instance variables.
 class WordGuess 
      
+    #The two kinds of accessors are writers and readers. Used to write and read these attributes inside the entire class.
     attr_reader :hidden_word, :word, :guessed_words, :game_end, :index, :guesses
 	attr_writer :guesses, :hidden_word, :guessed_words, :index
-
 
     # Initialize method with word parameter converted into instance variable.
 	def initialize(word)
@@ -76,10 +78,12 @@ class WordGuess
 		@hidden_word = word.tr(word,"-")
 	end
 
+	#A method to return the word.
 	def original_word
 		word
 	end
 
+    # A method to return the initial number of guesses
 	def guess_limit
 		guesses 
 	end
@@ -104,25 +108,35 @@ class WordGuess
 	# Method to get the guessed word from the user. 
 	def guessed_word(alphabet,position)
 		index = position-1
+
+		# Check for repeating guess by comparing already existing guesses from the hash.
 		if guessed_words.keys.index(position) != nil && guessed_words[position].upcase == alphabet.upcase
 			puts "Don't repeat the same guess"
+			puts "You have #{guesses} guesses left."
+
+		# If the guess is same as that of the original word's letter, its a correct guess
 		elsif original_word[index] == alphabet.upcase
 			hidden_word[index] = alphabet.upcase
 			guesses_history(alphabet,position)
 			puts "Congrats!!! Your guess is correct."
+			puts "You have #{guesses_left} guesses left."
+		# Additional condition for downcase correct guesses.
 		elsif original_word[index] == alphabet.downcase
 			hidden_word[index] = alphabet.downcase
 			guesses_history(alphabet,position)
 			puts "Congrats!!! Your guess is correct."
+			puts "You have #{guesses_left} guesses left."
+
+		# Other than repeat and correct guess, all other guesses are worng and just add the guesses to the hash to show repeat case in future.
 		else
 			puts "Sorry! That's a wrong guess."
+			puts "You have #{guesses_left} guesses left."
 			guesses_history(alphabet,position)
 		end
-		puts "You have only #{guesses_left} guesses left."
 		puts "The status of the word is: #{hidden_word}" 
 	end
 
-	# A method to end the game if the user has guessed all the letters.
+	# A method to end the game if the user has guessed all the letters and if the user has no more guesses.
 	def game_end?
 		if guess_limit == 0 
 			@game_end  = true 	
@@ -147,32 +161,37 @@ puts "3. You will receive continual feedback on the current state of the word."
 puts "LET'S PLAY ....... GUESS the WORD!"
 puts "-" * 34
 puts "Player 1: Please enter a word"
+
+# Get the word from the user and call the initialize method of WordGuess class with word as the attribute.
 word = gets.chomp
 wordgame = WordGuess.new(word)
 puts "Player 2: You have #{wordgame.guesses} guesses"
 puts "The word is: #{wordgame.hidden_word}"
+
+# Until the guesses are over, run this loop. The guesses will be decrementing from word.length till 0.
 until wordgame.guesses <= 0
 	#Initialize the local variables inside the loop to valid the until condition.
 	position = 0
     alphabet = ""
-	# Check whether the position is a valid position number 
+	# Allow only valid valid position number. 
 	until position >= 1 && position <=  word.length
-		puts "Enter the letter's postion (1 to #{word.length}):"
+		puts "Enter the letter's position (1 to #{word.length}):"
 		position = gets.chomp.to_i
 		puts "Invalid position." if (position < 1 || position > word.length)
 	end
-	# Check whether the guess is an alphabet and not any other invalid data.
+	# Check whether the guess is an alphabet and not any other input.
 	until alphabet.match(/^[[:alpha:]]$/)
-		puts "Enter your guess (alphanets):"
+		puts "Enter your guess (alphabets):"
 		alphabet = gets.chomp
 		puts "Invalid alphabet." if !alphabet.match(/^[[:alpha:]]$/)
 	end
+	# Call the guessed_word instnace method of WordGuess class with two attributes: alphabet and position.
 	wordgame.guessed_word(alphabet,position)
 end
 puts "-" * 50 
+# If the user has not find the word, dispaly a send off message. Else a congrats meesage.
 if  wordgame.game_end? == true
 	puts "Thanks for participation."
-	puts "The status of the word is: #{wordgame.hidden_word}"
 	puts "Better luck next time."
 elsif wordgame.game_end? == true && wordgame.hidden_word == word
 	puts "CONGRADULATIONS YOU WIN!!!!!!"
