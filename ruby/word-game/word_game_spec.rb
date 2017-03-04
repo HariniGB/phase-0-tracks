@@ -1,12 +1,12 @@
 # The user1 will give the word 
 # User2 will make the guesses till he find the right word.
-# There must be a guess_limit based on the length of the word.
-# Use a guessing_letter method to check whether its right or wrong.
-# If its right, decrement the count of the guesses. If its wrong add the guess in a list.
-# Repeated guesses do not count against the user.
+# There must be a guess_limit based on the length of the word. Decrement the guesses limit for each guess.
+# Use a guessed_word method to check for repeated guess and check for correct guess using conditions.
+# If its a correct guess, add the guess letter to the hidden_word and add the guess in a hash list. 
+# If its wrong, just add the guess in a hash list.
+# Repeated guesses do not count against the user. Check alreasy existing guesses with the correct guess.
 # The guessing player receives continual feedback on the current state of the word. 
 # The user should get a congratulatory message if they win, and a taunting message if they lose.
-
 
 # RSpec
 # 'describe' block for each group of tests  
