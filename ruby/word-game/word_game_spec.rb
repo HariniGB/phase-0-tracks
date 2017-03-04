@@ -12,42 +12,73 @@
 # 'describe' block for each group of tests  
   # 'it' block for each individual test
     # expect(<YOUR CODE>).to eq <RESULT>
-
 require_relative 'word_game'
 
 describe WordGuess do 
     let(:wordgame) { WordGuess.new("DevBootcamp") } 
 
-    it 'is initially empty' do
-    	expect(@guessed_word).to be_empty
-    end
-
     it "stores the word given on initialization" do
-    	expect(wordgame.target_word).to eq "DevBootcamp"
+    	expect(wordgame.original_word).to eq "DevBootcamp"
     end
 
     it "gives the total number of guesses" do
     	expect(wordgame.guess_limit).to eq 11
     end
 
+    it "when game starts" do
+        expect(wordgame.game_end?).to eq false 
+    end
+
     it "Convert the word to dashes" do
     	expect(wordgame.dash_word).to eq "-----------"
     end
 
-    it "get the guessed word and stores it" do
-    	expect(wordgame.correct_word("a",9)).to eq "Congrats!!! Your guess is correct. You have 10 guesses. Try to find the word."
+    it "check whether the guesses word is a correct guess" do
+    	expect(wordgame.guessed_word("a",9))=="--------a--"
+    end
+
+    it "after a correct guess the limit decrements" do
+        expect(wordgame.guesses_left).to eq 10
     end
 
     it "feedback on the current state of the word" do
-    	expect(wordgame.word_status).to eq "--------a--"
+    	expect(wordgame.guessed_word("e",9))== "--------a--"
     end
 
-    it "after a guess has made, display the hash with the guess data" do
-    	expect(@guessed_word).to eq "{9 => 'a'}"
+    it "after a guess has made, store the guess in the hash" do
+    	expect(wordgame.guesses_history("a",9)).to include({9=>"a"})
     end
 
-    it "get the guessed word and check for repeat" do
-    	expect(wordgame.repeat_word("b",9)).to eq "Don't repeat the same guess. You have 10 guesses. Try different guess."
+    it "get the guessed word and check for correct match" do
+        expect(wordgame.guessed_word("a",9))== "Repeated guess"
     end
+
+    it "is the game over" do
+        p wordgame.original_word
+        p wordgame.dash_word
+        p wordgame.guess_limit
+        p wordgame.guessed_word("D",1)
+        p wordgame.guess_limit
+        p wordgame.guessed_word("e",2)
+        p wordgame.guess_limit
+        p wordgame.guessed_word("v",3)
+        p wordgame.guess_limit
+        p wordgame.game_end?
+        p wordgame.guessed_word("B",4)
+        p wordgame.guessed_word("P",11)
+        p wordgame.guessed_word("o",6)
+        p wordgame.guessed_word("o",6)
+        p wordgame.guess_limit
+        p wordgame.game_end?
+        p wordgame.guessed_word("t",7)
+        p wordgame.guess_limit
+        p wordgame.guessed_word("o",5)
+        p wordgame.guessed_word("o",5)
+        p wordgame.guess_limit
+        p wordgame.guessed_word("c",8)
+        p wordgame.guessed_word("a",9)
+        p wordgame.guessed_word("m",10)
+        expect(wordgame.game_end?).to eq false
+     end
 
 end
