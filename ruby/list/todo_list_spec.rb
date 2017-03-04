@@ -1,3 +1,16 @@
+# our list should ...
+# stores the list items given on initialization
+# adds an item to the list
+# deletes an item
+# retrieves an item by index
+
+# RSpec
+# 'describe' block for each group of tests  
+  # 'it' block for each individual test
+    # expect(<YOUR CODE>).to eq <RESULT>
+
+require_relative 'todo_list'
+
 describe TodoList do
   let(:list) { TodoList.new(["do the dishes", "mow the lawn"]) }
 
