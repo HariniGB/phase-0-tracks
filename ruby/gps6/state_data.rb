@@ -1,6 +1,7 @@
 #population density is number of people per square mile as of 2012
 #this data is updated every year with estimates from a 10 year census
 
+# Symbols in hash are assigned with unique object ID whereas strings , when used multiplt times, the last string get the objectWhen you use require to load a file, you are usually accessing functionality that has been properly installed, and made accessible, in your system. require does not offer a good solution for loading files within the project’s code. 
 
 STATE_DATA = {
   "Alabama" => {population_density: 94.65, population: 4822023},
