@@ -83,5 +83,3 @@ STATE_DATA.each do |state, population_details| # |key , value| population_detail
   obj.virus_effects
 end
 
-#=======================================================================
-# Reflection Section
