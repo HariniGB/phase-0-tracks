@@ -8,7 +8,7 @@
 # Repeated guesses do not count. If a user guesses the same letter for the same index again and again, it should not be counted as a guess. 
 # The guessing player receives continual feedback on the current state of the word. So if the secret word is "unicorn", the user will start out seeing something like "_ _ _ _ _ _ _", which would become "_ _ _ c _ _ _" after the user enters a guess of "c".
 # The user should get a congratulatory message if they win, and a taunting message if they lose. And a repeated guess message if they guess same option again and again.
-
+# Use comment lines for each method.
 <<<<<<< HEAD:ruby/word-game/word-game.rb
 =======
 # Behavior: 
