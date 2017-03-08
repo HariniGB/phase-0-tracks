@@ -9,8 +9,7 @@
 # The guessing player receives continual feedback on the current state of the word. So if the secret word is "unicorn", the user will start out seeing something like "_ _ _ _ _ _ _", which would become "_ _ _ c _ _ _" after the user enters a guess of "c".
 # The user should get a congratulatory message if they win, and a taunting message if they lose. And a repeated guess message if they guess same option again and again.
 # Use comment lines for each method.
-<<<<<<< HEAD:ruby/word-game/word-game.rb
-=======
+
 # Behavior: 
 # A method to get the word and calculate its length, 
 # A method to get no of guesses etc. Decrement the guesses limit for each guess. 
@@ -18,8 +17,6 @@
 # Create a hash and store the guesses. Compare the current guess and the hash for already existing repeate guess.
 # Display the word status with correct guesses and other indeces as "_". 
 # Diplay a congrats message or a taunting message base on the guess. 
-
->>>>>>> origin/harini-version:ruby/word-game/word_game.rb
 
 # SAMPLE:
 
@@ -54,8 +51,6 @@
 # e
 # Congrats!!! Your guess is correct. You have 10 guesses. Try to find the word.
 # The word status is: _ e _ _ _ _ _ _ _ _ _ 
-<<<<<<< HEAD:ruby/word-game/word-game.rb
-=======
 
 
 # Release 2: Test and Build Your Game
@@ -201,4 +196,3 @@ if  wordgame.game_end? == true
 elsif wordgame.game_end? == true && wordgame.hidden_word == word
 	puts "CONGRADULATIONS YOU WIN!!!!!!"
 end
->>>>>>> origin/harini-version:ruby/word-game/word_game.rb
