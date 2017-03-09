@@ -12,8 +12,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:ruby/word-game/word-game.rb
 =======
+=======
+
+>>>>>>> 2efd7439a483de3919175d27d58ba42d981a6a87
 =======
 
 >>>>>>> 2efd7439a483de3919175d27d58ba42d981a6a87
