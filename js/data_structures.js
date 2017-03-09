@@ -54,7 +54,7 @@ console.log(names.splice(1,3));
 // dispaly the array after the splice. 
 console.log(names);
 
-*/
+
 
 // Release 1
 
@@ -77,6 +77,38 @@ console.log(horses)
 // Bracket notation
 horses["Omar"] = "Pink"
 console.log(horses)
+*/
+// Release 2
+
+
+function Car(year, make, model, isPopular) {
+	// Assign the three keys and its values as the parameters.
+	this.Year = year
+	this.Make = make
+	this.Model = model
+	this.Is_it_Popular = isPopular
+	// Assign a function to the keys
+	this.wheel_drive = function() { console.log("Vroom! Vroom! Vroom! Vroom!"); };
+	this.horse_power = function(power) { console.log("The horse power of this car is " + power + "hp."); }; 
+}
+
+console.log("Construction of a new car !")
+var newCar = new Car(2017, "Tesla","Model S", true);
+// print the object with all keys and values.
+console.log(newCar);
+console.log("Our car has all wheel drive.")
+// call the method values using dot notation.
+newCar.wheel_drive();
+newCar.horse_power(400); //Passing integer as argument
+console.log("---------------")
+var anotherCar = new Car("2017", "Audi" , "V7", false);
+console.log(anotherCar);
+console.log("Our car has all wheel drive.")
+// call the method values using dot notation.
+anotherCar.wheel_drive();
+anotherCar.horse_power("386 to 500");// Passing string as argument 
+
+
 
 
 
