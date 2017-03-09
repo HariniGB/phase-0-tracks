@@ -40,6 +40,7 @@ console.log("removed the first element of the array")
 console.log(colors);
 console.log(names);
 
+console.log("Display the each element")
 //display each element in the array
 for (var i = 0; i < colors.length ; i++){
 	console.log (colors[i])
