@@ -10,8 +10,12 @@
 # The user should get a congratulatory message if they win, and a taunting message if they lose. And a repeated guess message if they guess same option again and again.
 # Use comment lines for each method.
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:ruby/word-game/word-game.rb
 =======
+=======
+
+>>>>>>> 2efd7439a483de3919175d27d58ba42d981a6a87
 =======
 
 >>>>>>> 2efd7439a483de3919175d27d58ba42d981a6a87
