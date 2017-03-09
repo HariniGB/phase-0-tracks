@@ -4,6 +4,7 @@
 var colors = ["Blue", "Yellow", "Red", "Green"];
 var names = ["Ed", "Bert", "Scarlett", "Julie"];
 
+/*
 // push an element to the last position of the array.
 colors.push("Pink");
 names.push("Omar");
@@ -52,3 +53,32 @@ console.log(names.splice(1,3));
 
 // dispaly the array after the splice. 
 console.log(names);
+
+*/
+
+// Release 1
+
+var colors = ["Blue", "Yellow", "Red", "Green"];
+var names = ["Ed", "Bert", "Scarlett", "Julie"];
+
+//initialize the new empty object 
+var horses = {};
+
+for (var i = 0; i < names.length; i++) {
+    horses[names[i]] = colors[i];
+}
+console.log(horses);
+
+// Two types of notations 
+// Dot notation
+horses.Bert= "White"
+console.log(horses)
+
+// Bracket notation
+horses["Omar"] = "Pink"
+console.log(horses)
+
+
+
+
+
