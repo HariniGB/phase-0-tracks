@@ -28,3 +28,4 @@ puts "Our hamster's name is #{hamster_name}, and their squeakiness is #{volume} 
 n 't" unless adoptable} adoptable."
 puts "Their estimated age is #{if est_age; est_age; else "
 unknown "; end}."
+#Example. 
