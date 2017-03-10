@@ -1,10 +1,11 @@
 // Declare two separate arrays:
 // One with four colors
+//Release 0
 
 var colors = ["Blue", "Yellow", "Red", "Green"];
 var names = ["Ed", "Bert", "Scarlett", "Julie"];
 
-/*
+
 // push an element to the last position of the array.
 colors.push("Pink");
 names.push("Omar");
@@ -78,7 +79,7 @@ console.log(horses)
 // Bracket notation
 horses["Omar"] = "Pink"
 console.log(horses)
-*/
+
 
 // Release 2
 
