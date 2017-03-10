@@ -7,3 +7,25 @@
 -Add each letter to the new varaible(empty string).
 -return the new variable at the end.
 */
+
+
+//Release 4
+// Write Java script Porgram.
+
+function reverse(word) {
+	//Initialize a new variable with empty string.
+	var reversed_word = "";
+
+	// Iterating the given word in descending order.
+	for (var i = word.length - 1 ; i >= 0 ; i--) {
+		reversed_word += word[i];
+	}
+	//Return the new varaible which has the reversed word.
+	return reversed_word;
+}
+
+// Driver code
+console.log(reverse("hello"));
+// should return "olleh"
+console.log(reverse("Welcome!"));
+// returns "!!! yad ecin a evaH"
