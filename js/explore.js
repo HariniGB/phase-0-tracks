@@ -19,6 +19,12 @@ function reverse(word) {
 	// Iterating the given word in descending order.
 	for (var i = word.length - 1 ; i >= 0 ; i--) {
 		reversed_word += word[i];
+
+		//check the condition whether i == 0
+		if (i == 0) {
+			// Prints the input string.
+			console.log("The given word is: " + word);
+		}
 	}
 	//Return the new varaible which has the reversed word.
 	return reversed_word;
