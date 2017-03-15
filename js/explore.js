@@ -31,7 +31,16 @@ function reverse(word) {
 }
 
 // Driver code
-console.log(reverse("hello"));
-// should return "olleh"
-console.log(reverse("Welcome!"));
-// returns "!!! yad ecin a evaH"
+// Add driver code that prints the variable if some condition is true. 
+if (5 > 3){
+	console.log(reverse("hello"));
+        // should return "olleh"
+	console.log("The length of the string is: " + "hello".length);
+}
+if (1 == 1){
+	console.log(reverse("Welcome!"));
+	// returns "!!! yad ecin a evaH"
+        console.log("The length of the string is: " + "Welcome!".length);
+}
+
+       
