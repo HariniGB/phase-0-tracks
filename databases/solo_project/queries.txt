@@ -1,7 +1,10 @@
 Release 2 Execute SQL Queries:
 1. Display the information in one table (either table is fine).
 
+QUERY:
 sqlite> SELECT * FROM client;
+
+OUTPUT:
 1|Harini Balakrishnan|harini1593@gmail.com
 2|Srinivas Prasad|sriniprasad@gmail.com
 3|Monica Geller|monica15@gmail.com
@@ -9,7 +12,11 @@ sqlite> SELECT * FROM client;
 5|Rachel Green|rachel_green@gmail.com
 6|Phoebe Buffay|regina_philangea@gmail.com
 7|Joey Tribiyani|joey_tribiyani@gmail.com
+
+QUERY:
 sqlite> SELECT * FROM order_data;
+
+OUTPUT:
 1|SHOP-9999-0010|1
 2|SHOP-9999-0020|3
 3|SHOP-9999-0030|2
@@ -28,7 +35,11 @@ sqlite> SELECT * FROM order_data;
 16|SHOP-9999-0070|7
 17|SHOP-9999-0070|1
 18|SHOP-9999-0040|2
+
+QUERY:
 sqlite> SELECT * FROM order_item;
+
+OUTPUT:
 1|18|10|2000
 2|17|10|1000
 3|16|9|100
@@ -68,7 +79,10 @@ sqlite> SELECT * FROM client WHERE client_id=1;
 
 3. Display the information in both tables using one query.
 
+QUERY:
 sqlite> SELECT * FROM client, order_data WHERE client.client_id = order_data.client_id;
+
+OUTPUT:
 1|Harini Balakrishnan|harinibala@gmail.com|1|SHOP-9999-0010|1
 3|Monica Geller|monica15@gmail.com|2|SHOP-9999-0020|3
 2|Srinivas Prasad|sriniprasad@gmail.com|3|SHOP-9999-0030|2
@@ -88,7 +102,10 @@ sqlite> SELECT * FROM client, order_data WHERE client.client_id = order_data.cli
 1|Harini Balakrishnan|harinibala@gmail.com|17|SHOP-9999-0070|1
 2|Srinivas Prasad|sriniprasad@gmail.com|18|SHOP-9999-0040|2
 
+QUERY:
 sqlite> SELECT * FROM order_data, order_item WHERE order_item.id = order_data.order_id;
+
+OUTPUT:
 1|SHOP-9999-0010|1|1|18|10|2000
 2|SHOP-9999-0020|3|2|17|10|1000
 3|SHOP-9999-0030|2|3|16|9|100
@@ -112,7 +129,10 @@ sqlite> SELECT * FROM order_data, order_item WHERE order_item.id = order_data.or
 
 Display the client name, email id and their order number from the client table and order_data table.
 
+QUERY:
 sqlite> SELECT full_name,email,order_no FROM client, order_data WHERE client.client_id = order_data.client_id;
+
+OUTPUT:
 Harini Balakrishnan|harinibala@gmail.com|SHOP-9999-0010
 Monica Geller|monica15@gmail.com|SHOP-9999-0020
 Srinivas Prasad|sriniprasad@gmail.com|SHOP-9999-0030
@@ -134,7 +154,10 @@ Srinivas Prasad|sriniprasad@gmail.com|SHOP-9999-0040
 
 Display the client name and the amount per order from 3 different tables using two WHERE conditions and AND operator in this conditional query. Also using ORDER BY clause to display as per the full_name order.
 
+QUERY:
 sqlite> SELECT DISTINCT full_name,amount FROM client, order_data, order_item  WHERE client.client_id = order_data.client_id AND order_data.order_id = order_item.order_id ORDER BY full_name;
+
+OUTPUT:
 Harini Balakrishnan|1000
 Harini Balakrishnan|900
 Harini Balakrishnan|60
@@ -163,8 +186,11 @@ Srinivas Prasad|40
 
 Delete the order_items if the amount is less than or equal to 50. This will have impact on the above last query.
 
+QUERY:
 sqlite> DELETE FROM order_item WHERE amount <= 50; 
 sqlite> SELECT DISTINCT full_name,amount FROM client, order_data, order_item  WHERE client.client_id = order_data.client_id AND order_data.order_id = order_item.order_id ORDER BY full_name;
+
+OUTPUT:
 Harini Balakrishnan|1000
 Harini Balakrishnan|900
 Harini Balakrishnan|60
@@ -185,10 +211,89 @@ Srinivas Prasad|340 // Deleted Srinivas Prasad|40
 
 Delete the products that are not available in stock (is_avaialble is 0) or that does not have image (image is not ????). Using OR operator in this conditional query.
 
+QUERY:
 sqlite> DELETE image FROM product WHERE image!= ‘’ OR is_available=0;
+
+OUTPUT:
 4|PUMA305|Floral Tie-Sleeve Dress|48|Get ready to blossom in cool hues.||1
 6|PUMA306|Striped Maxi Dress with coat|59.5|Get ready to dress and dash with this easy and effortless maxi||1
 7|PUMA307|Striped floral coat|29.5|Get ready to dress and dash with this easy and effortless hues||1
+
+Release 3: Joins
+The SQLite Joins clause is used to combine records from two or more tables in a database. A JOIN is a means for combining fields from two tables by using values common to each.
+SQL defines three major types of joins −
+
+The CROSS JOIN: A CROSS JOIN matches every row of the first table with every row of the second table. If the input tables have x and y columns, respectively, the resulting table will have x*y columns. 
+
+QUERY:
+sqlite> SELECT full_name,name,price FROM client CROSS JOIN product;
+
+OUTPUT:
+Harini Balakrishnan|Floral Tie-Sleeve Dress|48
+Harini Balakrishnan|Striped Maxi Dress with coat|59.5
+Harini Balakrishnan|Striped floral coat|29.5
+Srinivas Prasad|Floral Tie-Sleeve Dress|48
+Srinivas Prasad|Striped Maxi Dress with coat|59.5
+Srinivas Prasad|Striped floral coat|29.5
+Monica Geller|Floral Tie-Sleeve Dress|48
+Monica Geller|Striped Maxi Dress with coat|59.5
+Monica Geller|Striped floral coat|29.5
+Ross Geller|Floral Tie-Sleeve Dress|48
+Ross Geller|Striped Maxi Dress with coat|59.5
+Ross Geller|Striped floral coat|29.5
+Rachel Green|Floral Tie-Sleeve Dress|48
+Rachel Green|Striped Maxi Dress with coat|59.5
+Rachel Green|Striped floral coat|29.5
+Phoebe Buffay|Floral Tie-Sleeve Dress|48
+Phoebe Buffay|Striped Maxi Dress with coat|59.5
+Phoebe Buffay|Striped floral coat|29.5
+Joey Tribiyani|Floral Tie-Sleeve Dress|48
+Joey Tribiyani|Striped Maxi Dress with coat|59.5
+Joey Tribiyani|Striped floral coat|29.5
+
+
+The INNER JOIN: A INNER JOIN creates a new result table by combining column values of two tables (table1 and table2) based upon the join-predicate. To avoid redundancy and keep the phrasing shorter, INNER JOIN conditions can be declared with a USING expression.
+
+QUERY:
+sqlite> SELECT full_name,order_no FROM client INNER JOIN order_data ON order_data.client_id = client.client_id ORDER BY client.client_id;
+(or)
+sqlite> SELECT full_name,order_no FROM client JOIN order_data USING (client_id) ORDER BY client.client_id;
+
+OUTPUT:
+Harini Balakrishnan|SHOP-9999-0010
+Harini Balakrishnan|SHOP-9999-0070
+Srinivas Prasad|SHOP-9999-0030
+Srinivas Prasad|SHOP-9999-0010
+Srinivas Prasad|SHOP-9999-0020
+Srinivas Prasad|SHOP-9999-0040
+Monica Geller|SHOP-9999-0020
+Monica Geller|SHOP-9999-2222
+Monica Geller|SHOP-9999-0060
+Ross Geller|SHOP-9999-0030
+Ross Geller|SHOP-9999-0040
+Ross Geller|SHOP-9999-0060
+Rachel Green|SHOP-9999-0050
+Phoebe Buffay|SHOP-9999-0050
+Phoebe Buffay|SHOP-9999-0060
+Joey Tribiyani|SHOP-9999-0050
+Joey Tribiyani|SHOP-9999-0060
+Joey Tribiyani|SHOP-9999-0070
+
+
+The OUTER JOIN: The OUTER JOIN is an extension of the INNER JOIN. Though SQL standard defines three types of OUTER JOINs: LEFT, RIGHT, and FULL but SQLite only supports the LEFT OUTER JOIN.
+
+QUERY:
+SELECT DISTINCT order_no,amount,name,price,full_name FROM order_data, product, client LEFT OUTER JOIN order_item USING(product_id,order_id) WHERE full_name= "Harini Balakrishnan" AND amount!= ' '; 
+
+OUTPUT:
+SHOP-9999-0010|340|Floral Tie-Sleeve Dress|48|Harini Balakrishnan
+SHOP-9999-0030|890|Floral Tie-Sleeve Dress|48|Harini Balakrishnan
+SHOP-9999-0050|500|Striped Maxi Dress with coat|59.5|Harini Balakrishnan
+SHOP-9999-0060|305|Striped floral coat|29.5|Harini Balakrishnan
+SHOP-9999-0060|125|Striped Maxi Dress with coat|59.5|Harini Balakrishnan
+SHOP-9999-0060|1200|Striped floral coat|29.5|Harini Balakrishnan
+SHOP-9999-0060|900|Striped floral coat|29.5|Harini Balakrishnan
+
 
 
 
