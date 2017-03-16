@@ -1,0 +1,194 @@
+Release 2 Execute SQL Queries:
+1. Display the information in one table (either table is fine).
+
+sqlite> SELECT * FROM client;
+1|Harini Balakrishnan|harini1593@gmail.com
+2|Srinivas Prasad|sriniprasad@gmail.com
+3|Monica Geller|monica15@gmail.com
+4|Ross Geller|ross_dino@gmail.com
+5|Rachel Green|rachel_green@gmail.com
+6|Phoebe Buffay|regina_philangea@gmail.com
+7|Joey Tribiyani|joey_tribiyani@gmail.com
+sqlite> SELECT * FROM order_data;
+1|SHOP-9999-0010|1
+2|SHOP-9999-0020|3
+3|SHOP-9999-0030|2
+4|SHOP-9999-0010|2
+5|SHOP-9999-0010|3
+6|SHOP-9999-0020|2
+7|SHOP-9999-0030|4
+8|SHOP-9999-0040|4
+9|SHOP-9999-0050|5
+10|SHOP-9999-0050|6
+11|SHOP-9999-0050|7
+12|SHOP-9999-0060|7
+13|SHOP-9999-0060|6
+14|SHOP-9999-0060|4
+15|SHOP-9999-0060|3
+16|SHOP-9999-0070|7
+17|SHOP-9999-0070|1
+18|SHOP-9999-0040|2
+sqlite> SELECT * FROM order_item;
+1|18|10|2000
+2|17|10|1000
+3|16|9|100
+4|15|8|700
+5|15|7|900
+6|14|7|1200
+7|14|8|12
+8|13|6|125
+9|12|7|305
+10|11|6|50
+11|10|6|500
+12|9|5|3000
+13|9|5|230
+14|8|5|30
+15|7|4|890
+16|6|3|70
+17|5|5|50
+18|4|4|340
+19|3|2|40
+20|2|3|100
+21|1|1|900
+22|1|2|60
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> SELECT * FROM order_data WHERE order_id=5;
+5|SHOP-9999-0010|3
+sqlite> UPDATE order_data SET order_no='SHOP-9999-2222' WHERE order_id=5;
+sqlite> SELECT * FROM order_data WHERE order_id=5;
+5|SHOP-9999-2222|3
+
+sqlite> SELECT * FROM client WHERE client_id=1;
+1|Harini Balakrishnan|harini1593@gmail.com
+sqlite> UPDATE client SET email="harinibala@gmail.com" WHERE client_id=1;
+sqlite> SELECT * FROM client WHERE client_id=1;
+1|Harini Balakrishnan|harinibala@gmail.com
+
+3. Display the information in both tables using one query.
+
+sqlite> SELECT * FROM client, order_data WHERE client.client_id = order_data.client_id;
+1|Harini Balakrishnan|harinibala@gmail.com|1|SHOP-9999-0010|1
+3|Monica Geller|monica15@gmail.com|2|SHOP-9999-0020|3
+2|Srinivas Prasad|sriniprasad@gmail.com|3|SHOP-9999-0030|2
+2|Srinivas Prasad|sriniprasad@gmail.com|4|SHOP-9999-0010|2
+3|Monica Geller|monica15@gmail.com|5|SHOP-9999-2222|3
+2|Srinivas Prasad|sriniprasad@gmail.com|6|SHOP-9999-0020|2
+4|Ross Geller|ross_dino@gmail.com|7|SHOP-9999-0030|4
+4|Ross Geller|ross_dino@gmail.com|8|SHOP-9999-0040|4
+5|Rachel Green|rachel_green@gmail.com|9|SHOP-9999-0050|5
+6|Phoebe Buffay|regina_philangea@gmail.com|10|SHOP-9999-0050|6
+7|Joey Tribiyani|joey_tribiyani@gmail.com|11|SHOP-9999-0050|7
+7|Joey Tribiyani|joey_tribiyani@gmail.com|12|SHOP-9999-0060|7
+6|Phoebe Buffay|regina_philangea@gmail.com|13|SHOP-9999-0060|6
+4|Ross Geller|ross_dino@gmail.com|14|SHOP-9999-0060|4
+3|Monica Geller|monica15@gmail.com|15|SHOP-9999-0060|3
+7|Joey Tribiyani|joey_tribiyani@gmail.com|16|SHOP-9999-0070|7
+1|Harini Balakrishnan|harinibala@gmail.com|17|SHOP-9999-0070|1
+2|Srinivas Prasad|sriniprasad@gmail.com|18|SHOP-9999-0040|2
+
+sqlite> SELECT * FROM order_data, order_item WHERE order_item.id = order_data.order_id;
+1|SHOP-9999-0010|1|1|18|10|2000
+2|SHOP-9999-0020|3|2|17|10|1000
+3|SHOP-9999-0030|2|3|16|9|100
+4|SHOP-9999-0010|2|4|15|8|700
+5|SHOP-9999-2222|3|5|15|7|900
+6|SHOP-9999-0020|2|6|14|7|1200
+7|SHOP-9999-0030|4|7|14|8|12
+8|SHOP-9999-0040|4|8|13|6|125
+9|SHOP-9999-0050|5|9|12|7|305
+10|SHOP-9999-0050|6|10|11|6|50
+11|SHOP-9999-0050|7|11|10|6|500
+12|SHOP-9999-0060|7|12|9|5|3000
+13|SHOP-9999-0060|6|13|9|5|230
+14|SHOP-9999-0060|4|14|8|5|30
+15|SHOP-9999-0060|3|15|7|4|890
+16|SHOP-9999-0070|7|16|6|3|70
+17|SHOP-9999-0070|1|17|5|5|50
+18|SHOP-9999-0040|2|18|4|4|340
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+Display the client name, email id and their order number from the client table and order_data table.
+
+sqlite> SELECT full_name,email,order_no FROM client, order_data WHERE client.client_id = order_data.client_id;
+Harini Balakrishnan|harinibala@gmail.com|SHOP-9999-0010
+Monica Geller|monica15@gmail.com|SHOP-9999-0020
+Srinivas Prasad|sriniprasad@gmail.com|SHOP-9999-0030
+Srinivas Prasad|sriniprasad@gmail.com|SHOP-9999-0010
+Monica Geller|monica15@gmail.com|SHOP-9999-2222
+Srinivas Prasad|sriniprasad@gmail.com|SHOP-9999-0020
+Ross Geller|ross_dino@gmail.com|SHOP-9999-0030
+Ross Geller|ross_dino@gmail.com|SHOP-9999-0040
+Rachel Green|rachel_green@gmail.com|SHOP-9999-0050
+Phoebe Buffay|regina_philangea@gmail.com|SHOP-9999-0050
+Joey Tribiyani|joey_tribiyani@gmail.com|SHOP-9999-0050
+Joey Tribiyani|joey_tribiyani@gmail.com|SHOP-9999-0060
+Phoebe Buffay|regina_philangea@gmail.com|SHOP-9999-0060
+Ross Geller|ross_dino@gmail.com|SHOP-9999-0060
+Monica Geller|monica15@gmail.com|SHOP-9999-0060
+Joey Tribiyani|joey_tribiyani@gmail.com|SHOP-9999-0070
+Harini Balakrishnan|harinibala@gmail.com|SHOP-9999-0070
+Srinivas Prasad|sriniprasad@gmail.com|SHOP-9999-0040
+
+Display the client name and the amount per order from 3 different tables using two WHERE conditions and AND operator in this conditional query. Also using ORDER BY clause to display as per the full_name order.
+
+sqlite> SELECT DISTINCT full_name,amount FROM client, order_data, order_item  WHERE client.client_id = order_data.client_id AND order_data.order_id = order_item.order_id ORDER BY full_name;
+Harini Balakrishnan|1000
+Harini Balakrishnan|900
+Harini Balakrishnan|60
+Joey Tribiyani|100
+Joey Tribiyani|305
+Joey Tribiyani|50
+Monica Geller|700
+Monica Geller|900
+Monica Geller|50
+Monica Geller|100
+Phoebe Buffay|125
+Phoebe Buffay|500
+Rachel Green|3000
+Rachel Green|230
+Ross Geller|1200
+Ross Geller|12
+Ross Geller|30
+Ross Geller|890
+Srinivas Prasad|2000
+Srinivas Prasad|70
+Srinivas Prasad|340
+Srinivas Prasad|40
+
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+Delete the order_items if the amount is less than or equal to 50. This will have impact on the above last query.
+
+sqlite> DELETE FROM order_item WHERE amount <= 50; 
+sqlite> SELECT DISTINCT full_name,amount FROM client, order_data, order_item  WHERE client.client_id = order_data.client_id AND order_data.order_id = order_item.order_id ORDER BY full_name;
+Harini Balakrishnan|1000
+Harini Balakrishnan|900
+Harini Balakrishnan|60
+Joey Tribiyani|100
+Joey Tribiyani|305 // Deleted Joey Tribiyani|50
+Monica Geller|700
+Monica Geller|900 // Deleted Monica Geller|50
+Monica Geller|100
+Phoebe Buffay|125
+Phoebe Buffay|500
+Rachel Green|3000
+Rachel Green|230
+Ross Geller|1200     // Deleted Ross Geller|12 and Ross Geller|30
+Ross Geller|890
+Srinivas Prasad|2000
+Srinivas Prasad|70
+Srinivas Prasad|340 // Deleted Srinivas Prasad|40
+
+Delete the products that are not available in stock (is_avaialble is 0) or that does not have image (image is not ????). Using OR operator in this conditional query.
+
+sqlite> DELETE image FROM product WHERE image!= ‘’ OR is_available=0;
+4|PUMA305|Floral Tie-Sleeve Dress|48|Get ready to blossom in cool hues.||1
+6|PUMA306|Striped Maxi Dress with coat|59.5|Get ready to dress and dash with this easy and effortless maxi||1
+7|PUMA307|Striped floral coat|29.5|Get ready to dress and dash with this easy and effortless hues||1
+
+
+
