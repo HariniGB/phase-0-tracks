@@ -1,0 +1,71 @@
+Release 2
+
+1. In the welp directory, create a file called queries.txt. Once you've figured out the queries below, paste them into queries.txt, along with the output from your database.
+
+2. You've joined two tables before. How do you join three?
+
+I have used INNER JOIN to combine three table’s records. 
+
+The SQLite Joins clause is used to combine records from two or more tables in a database. A JOIN is a means for combining fields from two tables by using values common to each.
+SQL defines three major types of joins −
+
+The CROSS JOIN: A CROSS JOIN matches every row of the first table with every row of the second table. If the input tables have x and y columns, respectively, the resulting table will have x*y columns. 
+
+The INNER JOIN: A INNER JOIN creates a new result table by combining column values of two tables (table1 and table2) based upon the join-predicate. To avoid redundancy and keep the phrasing shorter, INNER JOIN conditions can be declared with a USING expression.
+
+The OUTER JOIN: The OUTER JOIN is an extension of the INNER JOIN. Though SQL standard defines three types of OUTER JOINs: LEFT, RIGHT, and FULL but SQLite only supports the LEFT OUTER JOIN.
+
+3. There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.
+
+sqlite> SELECT first_name,last_name,name,comment,stars FROM reviews,users INNER JOIN businesses WHERE businesses.business_id = reviews.business_id AND reviews.user_id = users.user_id;
+Holly|Berry|The Beagle Nightclub|Decent|3
+Denzel|George|Lotus Yogu|Very Good|1
+Merryl|Streepman|Amir's Towing|Excellent|2
+Angela|Jolie|Grundy Hollow Wedding Chapel|The Best|5
+Merryl|Streepman|Grundy Hollow Wedding Chapel|Amazing|5
+
+
+4. How do you view the data of all three tables for just one particular business? 
+
+
+sqlite> SELECT * FROM reviews,users,businesses WHERE name="Lotus Yogu";
+1|3|Decent|3|5|1|Bradford|Pitt|4|Lotus Yogu
+1|3|Decent|3|5|2|Mandy|Kaling|4|Lotus Yogu
+1|3|Decent|3|5|3|Angela|Jolie|4|Lotus Yogu
+1|3|Decent|3|5|4|Steven|Wonder|4|Lotus Yogu
+1|3|Decent|3|5|5|Holly|Berry|4|Lotus Yogu
+1|3|Decent|3|5|6|Merryl|Streepman|4|Lotus Yogu
+1|3|Decent|3|5|7|Denzel|George|4|Lotus Yogu
+2|1|Very Good|4|7|1|Bradford|Pitt|4|Lotus Yogu
+2|1|Very Good|4|7|2|Mandy|Kaling|4|Lotus Yogu
+2|1|Very Good|4|7|3|Angela|Jolie|4|Lotus Yogu
+2|1|Very Good|4|7|4|Steven|Wonder|4|Lotus Yogu
+2|1|Very Good|4|7|5|Holly|Berry|4|Lotus Yogu
+2|1|Very Good|4|7|6|Merryl|Streepman|4|Lotus Yogu
+2|1|Very Good|4|7|7|Denzel|George|4|Lotus Yogu
+3|2|Excellent|2|6|1|Bradford|Pitt|4|Lotus Yogu
+3|2|Excellent|2|6|2|Mandy|Kaling|4|Lotus Yogu
+3|2|Excellent|2|6|3|Angela|Jolie|4|Lotus Yogu
+3|2|Excellent|2|6|4|Steven|Wonder|4|Lotus Yogu
+3|2|Excellent|2|6|5|Holly|Berry|4|Lotus Yogu
+3|2|Excellent|2|6|6|Merryl|Streepman|4|Lotus Yogu
+3|2|Excellent|2|6|7|Denzel|George|4|Lotus Yogu
+4|5|The Best|1|3|1|Bradford|Pitt|4|Lotus Yogu
+4|5|The Best|1|3|2|Mandy|Kaling|4|Lotus Yogu
+4|5|The Best|1|3|3|Angela|Jolie|4|Lotus Yogu
+4|5|The Best|1|3|4|Steven|Wonder|4|Lotus Yogu
+4|5|The Best|1|3|5|Holly|Berry|4|Lotus Yogu
+4|5|The Best|1|3|6|Merryl|Streepman|4|Lotus Yogu
+4|5|The Best|1|3|7|Denzel|George|4|Lotus Yogu
+5|5|Amazing|1|6|1|Bradford|Pitt|4|Lotus Yogu
+5|5|Amazing|1|6|2|Mandy|Kaling|4|Lotus Yogu
+5|5|Amazing|1|6|3|Angela|Jolie|4|Lotus Yogu
+5|5|Amazing|1|6|4|Steven|Wonder|4|Lotus Yogu
+5|5|Amazing|1|6|5|Holly|Berry|4|Lotus Yogu
+5|5|Amazing|1|6|6|Merryl|Streepman|4|Lotus Yogu
+5|5|Amazing|1|6|7|Denzel|George|4|Lotus Yogu
+
+(or)
+
+sqlite> SELECT * FROM reviews,users,businesses WHERE name="Lotus Yogu" AND  businesses.business_id = reviews.business_id AND reviews.user_id = users.user_id;
+2|1|Very Good|4|7|7|Denzel|George|4|Lotus Yogu
