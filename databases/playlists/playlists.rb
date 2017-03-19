@@ -1,5 +1,4 @@
 # PLAYLISTS 
-
 # PSEUDOCODE 
 # Need to create a database 'playlists.db'.
 # Need to store datas about songlist, users, playlist and artists in tables.
@@ -59,29 +58,28 @@ create_users_table = <<-SQL
 SQL
 db.execute(create_users_table)
 
-# Create methods to create new playlist.
+# Create methods to  insert new values to the playlist table.
 def create_playlist(db,playlist)
 	db.execute("INSERT INTO playlist (playlist_name) VALUES ('#{playlist}');")
 end
 
-# Create methods to create new user.
+# Create methods to insert new values to the users table.
 def create_user(db,first_name,last_name,is_artist,playlist_id)
 	db.execute("INSERT INTO users (first_name,last_name,is_artist,playlist_id) VALUES  ('#{first_name}', '#{last_name}', '#{is_artist}', #{playlist_id});")
 end
 
-# Create methods to create new song.
+# Create methods to insert new values to the  songlist table.
 def create_song(db,song_name,artist_name,playlist_id)
 	db.execute("INSERT INTO songlist (song_name,artist_name,playlist_id) VALUES ('#{song_name}', '#{artist_name}', #{playlist_id});")
 end
 
-# Create methods to create new artist.
+# Create methods to  insert new values to the artists table.
 def create_artist(db,artist_name,language)
 	db.execute("INSERT INTO artists (artist_name,language) VALUES ('#{artist_name}', '#{language}');")
 end
 
 
 # Create methods to display the all the details from specific table.
-
 # Display all coulmns from the playlist table
 
 def display_playlist(db)
@@ -123,7 +121,7 @@ def display_artists(db)
 		puts "Artist's Name: #{artist['artist_name']} ; Language is #{artist['language']}"
 	end
 end
-
+# Create methods to dispaly specific columns from one or more tables. 
 # Display the song name and the artist name from the  songs table
 def display_song_with_artist(db)
 	puts "The songs with artist's name"
@@ -190,8 +188,11 @@ until (activity_value == 3)
 		puts "OPTIONS:"
 		data = ["1. All Playlists","2. All User's Names","3. All Songs","4. All Artists", "5. Each users with their playlists", "6. The songs and its artist's name","7. The songs grouped under each playlists", "8. Combined history of playlists, users, songs and the artists."]
 		puts data;
+		# Get the option from the user. If they type wrong option print a message.
 		puts "Enter the option number (1 - 8):"
 		data_to_display = gets.chomp.to_i
+		
+		# Based on the option number, call the method to display the datas.
 		case data_to_display 
 		when 1
 			display_playlist(db)
@@ -218,6 +219,7 @@ until (activity_value == 3)
 		puts data
 		puts "Enter the option number (1 - 4):"
 		data_to_display = gets.chomp.to_i
+		# Get any valid option number from the user. Print message if they enter invalid values.
 		case data_to_display
 		when 1
 			puts "Enter the playlist name:"
@@ -232,6 +234,7 @@ until (activity_value == 3)
 			display_playlist(db)
 			puts "Select and enter the playlist id from the above list:"
 			playlist_id = gets.chomp.to_i
+			# We need artists name, playlist nuumber in order to create a valid value for songlist table.
 			create_song(db,song_name,artist_name,playlist_id)
 		when 3
 			puts "Enter the artist's name"
@@ -254,6 +257,7 @@ until (activity_value == 3)
 			puts "Enter the user's last name:"
 			last_name = gets.chomp
 			is_artist = 0
+			# As the artist_name is a promary key. We should check whether the artist name is not repeated.
 			until is_artist == true || is_artist == false
 				puts "Whether this user is an artist or not? (Enter true or false)"
 				is_artist = gets.chomp
