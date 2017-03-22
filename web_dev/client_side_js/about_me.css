@@ -17,7 +17,7 @@ img {
 }
 ul {
     padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
 }
 li {
     display: inline;
@@ -27,6 +27,30 @@ article {
     max-width: 500px;
     padding: 20px;
     margin: 0 auto;
+}
+button {
+    color: #00ffff;
+    border: 2px solid green;
+}
+.table{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#gallery{
+    padding: 5px;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    text-transform: capitalize;
+}
+#date{
+    color: black;
+    width: 0 auto;
+    text-align: center;
 }
 @media (max-width: 500px) {
     h1 {
