@@ -7,6 +7,10 @@
 <body>
 <h1>Harini's restaurant</h1>
 <h2>a San Francisco city eatery</h2>
+<p id="first_para">
+Baking is a wonderful way to spark a lifelong love of the kitchen in your children. I love to make muffins and cookies. In my life baking and cooking is like therapy that gives me relaxation and happiness. It's messy (and therefore fun!) and the results are hard to resist.<br>
+<b>Click to hide </b>
+</p>
 <div class="first">
   <p>olan - kerala style <span class="price">$15</span><br />
   <small class="show-description">Olan is an important part of Onam Sadhya dishes and also one of the most simplest recipes. It tastes delicious with a nice fragrance of coconut oil. Olan can be prepared with or without the red cow peas. Here I have prepared with both ash gourd and pumpkin with and without the cow peas beans. Learn how to prepare Olan by following this easy Olan recipe. </small></p>
@@ -21,10 +25,33 @@ Read more at http://www.the-girl-who-ate-everything.com/2014/09/pumpkin-chocolat
 <div class="dessert">
   <p>Bhakarwadi - Gujarathi snacks <span class="price">$10</span><br />
   <small class="show-description">Bhakarwadi is a traditional spicy maharastrian snack recipe which requires effort but can be stored for weeks and enjoyed with evening tea. The flour based round discs are stuffed with roasted poppy seeds, steamed and then finally deep fried to a crispy finish.</small></p>
+</div><br><br>
+<div>
+<form>
+<fieldset>  
+Name:<input type="text" name="fullname"><br>
+Comments: <input type="text" name="comment" size=50>
+</fieldset>
+</form>
 </div>
 <script>
   $('div').on('click', function() {
-      $(this).toggleClass('show-description');
+    $(this).toggleClass('show-description');
+  });
+  $('p:first').on('click',function(){
+    $(this).hide();
+  });
+  $('.first').mouseenter(function(){
+    alert("You moved your move over the olan item.");
+  });
+  $('.second').mouseleave(function(){
+    alert("You moved back your move from the pumpkin item.");
+  });
+  $("input").focus(function(){
+        $(this).css("background-color", "#cccccc");
+  });
+  $("input").blur(function(){
+        $(this).css("background-color", "#ffffff");
   });
 </script>
 </body>
