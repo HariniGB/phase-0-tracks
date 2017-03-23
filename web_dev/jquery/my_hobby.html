@@ -27,11 +27,16 @@ Read more at http://www.the-girl-who-ate-everything.com/2014/09/pumpkin-chocolat
   <small class="show-description">Bhakarwadi is a traditional spicy maharastrian snack recipe which requires effort but can be stored for weeks and enjoyed with evening tea. The flour based round discs are stuffed with roasted poppy seeds, steamed and then finally deep fried to a crispy finish.</small></p>
 </div><br><br>
 <div>
+<p class='fade'> The fadeIn() method gradually changes the opacity, for selected elements, from hidden to visible (fading effect). The fadeOut() method gradually changes the opacity, for selected elements, from visible to hidden (fading effect). Hidden elements will not be displayed at all.</p>
+<button class="btn1">Fade out</button>
+<button class="btn2">Fade in</button>
+</div>
+<div>
 <form>
 <fieldset>  
 Name:<input type="text" name="fullname"><br>
 Comments: <input type="text" name="comment" size=50>
-<button>Submit</button>
+<button class="btn3">Submit</button>
 </fieldset>
 </form>
 </div>
@@ -42,7 +47,7 @@ Comments: <input type="text" name="comment" size=50>
   $('p:first').on('click',function(){
     $(this).hide();
   });
-  $('.first').mouseenter(function(){
+  $('.dessert').mouseenter(function(){
     alert("You moved your move over the olan item.");
   });
   $('.second').mouseleave(function(){
@@ -54,13 +59,17 @@ Comments: <input type="text" name="comment" size=50>
   $('input').blur(function(){
         $(this).css("background-color", "#ffffff");
   });
-  $('button').on('click',function(){
+  $('.btn3').on('click',function(){
     confirm("Are you sure you want to submit?");
-    $('form').fadeOut(3000);
-    $('footer"').fadeIn("Thanks for submitting your details.");
   });
-  $('.dessert').hover(function(){
-        alert("You entered the dessert section!");
+  $('.first').hover(function(){
+    alert("You entered the dessert section!");
+  });
+  $(".btn1").click(function(){
+    $('.fade').fadeOut(300)
+  });
+  $(".btn2").click(function(){
+    $('.fade').fadeIn(500);
   });
 </script>
 </body>
