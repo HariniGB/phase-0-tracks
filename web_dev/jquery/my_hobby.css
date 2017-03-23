@@ -9,7 +9,7 @@ body {
   background: -o-linear-gradient( #adb6f9, #fbc9c9);
   background: -moz-linear-gradient( #adb6f9, #fbc9c9);
   background: linear-gradient( #adb6f9, #fbc9c9);
-  width: 100%;
+  width: 75%;
 }
 div {
   height: 200px;
