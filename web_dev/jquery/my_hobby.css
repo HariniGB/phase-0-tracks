@@ -22,7 +22,7 @@ h1 {
   font-family: 'Handlee', cursive;
   text-align: center;
   font-size: 75px;
-  color: #fff000;
+  color: #f96f34;
   margin: 60px 0 0 0;
 }
 h2 {
@@ -51,7 +51,22 @@ p {
 small {
   opacity: 0;
 }
-
+#first_para{
+  color: black;
+  position: relative;
+  bottom: 0;
+  margin: 0;
+  height: 150px;
+  background: #adb6f9;
+  -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+  animation: mymove 5s infinite;
+}
+@-webkit-keyframes mymove {
+    50% {background-color: #fbc9c9;}
+}
+@keyframes mymove {
+    50% {background-color: #fbc9c9;}
+}
 .show-description p {
   height: 150px;
 }
