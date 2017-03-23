@@ -4,12 +4,12 @@ body {
   max-width: 600px;
   background-repeat: no-repeat;
   background-size: cover;
-  background: #adb6f9;
+  background: #fbc9c9;
   background: -webkit-linear-gradient( #adb6f9, #fbc9c9);
   background: -o-linear-gradient( #adb6f9, #fbc9c9);
   background: -moz-linear-gradient( #adb6f9, #fbc9c9);
   background: linear-gradient( #adb6f9, #fbc9c9);
-  width: 75%;
+  width: 100%;
 }
 div {
   height: 200px;
@@ -93,7 +93,7 @@ small {
     font-size: 16px;
   }
   body {
-    background: #992299;
+    background: #adb6f9;
   }
 }
 
