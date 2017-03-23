@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
-<link href="my_hobby.css" type="text/css">
+<script src="/assets/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+<link href="my_hobby.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <h1>Harini's restaurant</h1>
@@ -20,5 +22,10 @@ Read more at http://www.the-girl-who-ate-everything.com/2014/09/pumpkin-chocolat
   <p>Bhakarwadi - Gujarathi snacks <span class="price">$10</span><br />
   <small>Bhakarwadi is a traditional spicy maharastrian snack recipe which requires effort but can be stored for weeks and enjoyed with evening tea. The flour based round discs are stuffed with roasted poppy seeds, steamed and then finally deep fried to a crispy finish.</small></p>
 </div>
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
 </body>
 </html>
