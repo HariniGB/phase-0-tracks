@@ -31,6 +31,7 @@ Read more at http://www.the-girl-who-ate-everything.com/2014/09/pumpkin-chocolat
 <fieldset>  
 Name:<input type="text" name="fullname"><br>
 Comments: <input type="text" name="comment" size=50>
+<button>Submit</button>
 </fieldset>
 </form>
 </div>
@@ -47,11 +48,19 @@ Comments: <input type="text" name="comment" size=50>
   $('.second').mouseleave(function(){
     alert("You moved back your move from the pumpkin item.");
   });
-  $("input").focus(function(){
+  $('input').focus(function(){
         $(this).css("background-color", "#cccccc");
   });
-  $("input").blur(function(){
+  $('input').blur(function(){
         $(this).css("background-color", "#ffffff");
+  });
+  $('button').on('click',function(){
+    confirm("Are you sure you want to submit?");
+    $('form').fadeOut(3000);
+    $('footer"').fadeIn("Thanks for submitting your details.");
+  });
+  $('.dessert').hover(function(){
+        alert("You entered the dessert section!");
   });
 </script>
 </body>
