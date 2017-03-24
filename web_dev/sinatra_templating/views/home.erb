@@ -8,7 +8,7 @@
   <h2>Students with their specialization subject.</h2>
   <ul>
     <% @student_with_subject.each do |student|%>
-      <li>Student name is: <%= student['name'] %>, specialization in <%= subject['subject_name'] %></li>
+      <li>Student name is: <%= student['name'] %>, specialization in <%= student['subject_name'] %></li>
       <% end %>
   </ul>
   <h2>Students</h2> 
