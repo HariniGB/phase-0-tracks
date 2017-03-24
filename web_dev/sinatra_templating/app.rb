@@ -9,6 +9,7 @@ db.results_as_hash = true
 
 # show students on the home page
 get '/' do
+  @student_with_subject = db.execute("SELECT name,subject_name FROM students INNER JOIN subject WHERE students.id = subject.student_id")
   @students = db.execute("SELECT * FROM students")
   @subjects = db.execute("SELECT * FROM subject")
   erb :home
